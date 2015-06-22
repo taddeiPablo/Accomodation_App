@@ -1,0 +1,67 @@
+<ion-view view-title="Accomodation Details">
+  <ion-content ng-controller="AccomodationDetails" ng-init="GetAccomodation()">
+  	<div class="list card">
+  		<div class="item item-avatar">
+            <img src="img/home.png"></img>
+    		<h2>Country</h2>
+    		<p>{{accomodation.country}}</p>
+        <h2>State</h2>
+        <p>{{accomodation.state}}</p>
+  		</div>
+      <p>
+        <div class="item item-avatar">
+          <label>Dueño del alojamiento</label><br>
+          <label><strong>Name :</strong></label>
+          <label>{{personal_data.name}}</label><br>
+          <label><strong>LastName :</strong></label>
+          <label>{{personal_data.lastName}}</label><br>
+          <label><strong>Phone :</strong></label>
+          <label>{{personal_data.phone}}</label><br>
+          <label><strong>Email :</strong></label>
+          <label>{{personal_data.email}}</label>
+        </div>
+      </p>
+
+  		<div class="item item-body">
+        <div class="full-image">
+            <img id="img1" alt="vacio" class="full-image"></img>
+        </div>
+        <p>
+          <label><strong>City:</strong></label>
+          <label>{{accomodation_result.city}}</label><br>
+          <label><strong>Address :</strong></label>
+          <label>{{accomodation_result.address}}</label><br>
+        </p>
+        <p>
+          <label><strong>Dimension Accomodation</strong></label><br>
+          <label>{{accomodation_result.dimensionsAcc}}</label>
+        </p>
+        <p>
+          <label><strong>Description Accomodation</strong></label><br>
+          <label>{{accomodation_result.description}}</label>
+        </p>
+        <p><label><strong>Ubication Map</strong></label></p>
+        <div>
+          <div id="map-canvas" class="Gmap-Acc"></div>
+        </div>
+        <div>
+          <p>
+            <a href="#" class="subdued">{{likes}} Like</a>
+            <a href="#" class="subdued" ng-click="Commentlist()">{{commentCont}} Comments</a>
+          </p>
+        </div>
+  		</div>
+
+  		<div class="item tabs tabs-secondary tabs-icon-left">
+    		<a class="tab-item" href="#" ng-click="crud_like()">
+      			<i class="icon ion-thumbsup"></i>
+      			Like
+    		</a>
+    		<a class="tab-item" href="#" ng-click="comment()">
+      			<i class="icon ion-chatbox"></i>
+      			Comment
+    		</a>
+  		</div>
+	</div>
+  </ion-content>
+</ion-view>

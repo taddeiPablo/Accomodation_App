@@ -1,0 +1,33 @@
+<ion-modal-view ng-controller="AccomodationDetails">
+  <ion-header-bar>
+    <h1 class="title"><strong>List Comments</strong></h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeList_comment()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <!--<h3>List Comments</h3>-->
+    <div class="item item-body">
+      <div class="list">
+        <ul>
+          <li ng-repeat="acc in array">
+            <!--<a class="item item-thumbnail-left" href="#/app/details" ng-click="select($index)">
+              <label><strong>Name :</strong></label>
+              <label>{{acc.nameUsr}}</label><br>
+              <label><strong>Comment</strong></label><br>
+              <label>{{acc.Comment}}</label>
+            </a>-->
+            <a class="item item-text-wrap" href="#">
+                <div class="item item-divider">
+                    <h2>{{acc.nameUsr}}</h2>
+                </div>
+                <div class="item item-text-wrap">
+                    <h2>{{acc.Comment}}</h2>
+                </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,22 @@
+<ion-view view-title="Result Search">
+  <ion-content>
+    <h4 class="title">Result Accomodations</h4>
+    <div class="item item-body" ng-controller="Form3">
+      <div class="list" ng-init="init()">
+        <ul>
+          <li ng-repeat="res in result">
+              <a class="item item-thumbnail-left" href="#/app/details" ng-click="select($index)">
+                  <img src="img/home.png"></img>
+                  <h2>{{res.country}}</h2>
+                  <h2>{{res.state}}</h2>
+                  <h2>{{res.city}}</h2>
+                  <p>{{res.description}}</p>
+              </a>
+          </li>
+        </ul>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left footResult">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

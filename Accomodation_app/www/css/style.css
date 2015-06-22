@@ -1,0 +1,103 @@
+/* Empty. Add your own CSS if you like */
+
+
+.Gmap{
+	height: 300px;
+	border: 1px solid;
+}
+
+.descriptAcc{
+	height: 200px;
+	margin-top: 20px;
+}
+
+.Gmap-Acc{
+	height: 300px;
+	border: 1px solid;
+}
+
+.comment{
+	margin-top: 5px;
+	height: 100px;
+}
+
+.main{
+	background-image: url('../img/fondo.jpg');
+}
+
+.personalData{
+	margin-top: 50px;
+}
+
+.commentsAndLikes{
+	margin-top: 50px;
+}
+
+.accomodation{
+	margin-top: 50px;
+}
+
+.titulo{
+	font-weight: bold !important;
+	margin-top: 20px;
+	width: 137px;
+	margin: auto !important;
+}
+
+.subTitulo{
+	margin: 30px auto auto !important;
+	width: 264px;
+}
+
+.btnSearch{
+	margin-top: 30px;
+}
+
+.titles{
+	margin-top: 30px;
+}
+
+.validation{
+	color: #FF0000;
+	margin-left: 15px;
+}
+
+.title{
+	margin-left: 16px;
+	margin-top: 20px;
+	width: 228px;
+}
+
+.file_name{
+	margin-top: 30px;
+}
+
+.file_country{
+	margin-top: 30px;	
+}
+
+.input_phone{
+	width: 110px !important;
+	float: left !important;
+}
+
+.item_Profile{
+	margin-top: 30px;
+}
+
+.subItem{
+	width: 171px;
+	margin: auto;
+}
+
+.description_label{
+	padding-left: 10px;
+}
+
+.subdiv{
+	margin-top: 20px;
+}
+
+.footResult{
+	background: #3A3A3A;
+}

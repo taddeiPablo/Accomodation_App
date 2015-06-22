@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Registration</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeRegistration()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="Form2" ng-submit="doRegistration()" ng-controller="Form2">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label"><strong>Email :</strong></span>
+          <input type="email" ng-model="registrationData.email" ng-keydown="validation_email(registrationData.email)">
+        </label>
+        <strong class="validation" ng-show="error_email">{{validation_email_registration}}</strong>
+        <label class="item item-input">
+          <span class="input-label"><strong>Password :</strong></span>
+          <input type="password" ng-model="registrationData.password" ng-keydown="validation_pass(registrationData.password)">
+        </label>
+        <strong class="validation" ng-show="error_pass">{{validation_pass_registration}}</strong>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="btn_disabled"><strong>Registration</strong></button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

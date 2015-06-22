@@ -1,0 +1,147 @@
+<ion-view view-title="MainPanel">
+	<ion-tabs class="tabs-positive tabs-icon-only">
+    	<ion-tab title="Datos Personales">
+      		<!--Tab 1 icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" -->
+      		<ion-content ng-controller="AccomodationControl" ng-init="getProfile()">
+      			<form name="personaldataForm" ng-submit="Crud_Profile()">
+              <div class="list personalData">
+                <h4 class="title">PROFILE</h4>
+                <label class="item item-input item-floating-label file_name">
+          					<span class="input-label"><strong>Name</strong></span>
+                     <input type="text" placeholder="Name" ng-model="personalData.name"
+                     ng-keydown="validation_name(personalData.name)" />
+      					</label>
+      					<strong class="validation" ng-show="error_name">{{validation_letters_PD}}</strong>
+                
+                <label class="item item-input item-floating-label">
+          					<span class="input-label"><strong>Last Name</strong></span>
+          					<input type="text" placeholder="Last Name" ng-model="personalData.lastName"
+                     ng-keydown="validation_lastname(personalData.lastName)">
+      					</label>
+                <strong class="validation" ng-show="error_lastName">{{validation_letters_PD}}</strong>
+                
+                <label class="item item-input item-floating-label">
+                    <span class="input-label"><strong>Document</strong></span>
+                    <input type="text" placeholder="Document" ng-model="personalData.document"
+                     ng-keydown="validation_document(personalData.document)">
+                </label>
+                <strong class="validation" ng-show="error_document">{{validation_numbers_PD}}</strong>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label"><strong>Personal Phone</strong></span>
+                    <input type="text" class="input_phone" placeholder="Personal Phone" ng-model="personalData.phone" ng-keydown="validation_personalPhone(personalData.phone)">
+                    <i class="icon ion-ios-telephone-outline"></i>
+                </label>
+                <strong class="validation" ng-show="error_PersonalPhone">{{validation_numbers_PD}}</strong>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label"><strong>Email</strong></span>
+                    <input type="text" placeholder="Email" ng-model="personalData.email"    ng-keydown="validation_EmailPd(personalData.email)">
+                </label>
+                <strong class="validation" ng-show="error_email">{{validation_email_PD}}</strong>
+                <label class="item item_Profile">
+                    <div class="subItem">
+                      <button class="button button button-positive" type="submit">{{btnAction}}</button>
+                      <button class="button button button-energized" type="button">Cancel</button>
+                    </div>
+                </label>
+    				  </div>
+      			</form>
+      		</ion-content>
+    	</ion-tab>
+    	<ion-tab title="Accomodation" id="acc">
+      		<!-- Tab 2 content icon-on="ion-ios-clock"icon-off="ion-ios-clock-outline" -->
+      		<ion-content ng-controller="AccomodationControl" ng-init="getAccomodation()">
+      			<form name="accomodationdataForm" ng-submit="Crud_accomodation()">
+      				<div class="list accomodation">
+      					<h4 class="title">Accomodation</h4>
+  			        <label class="item item-input item-floating-label file_country">
+                   <span class="input-label"><strong>Country</strong></span>
+                   <input type="text" id="country" placeholder="Country" ng-model="accomodationData.country" ng-keydown="validation_countryAcc(accomodationData.country)"/>
+                </label>
+                <strong class="validation" ng-show="error_country">{{validationAcc}}</strong>
+                <label class="item item-input item-floating-label">
+                   <span class="input-label"><strong>State</strong></span>
+                   <input type="text" id="state" placeholder="States" ng-model="accomodationData.state" ng-keydown="validation_statesAcc(accomodationData.state)"/>
+                </label>
+                <strong class="validation" ng-show="error_states">{{validationAcc}}</strong>
+                <label class="item item-input item-floating-label">
+                  <span class="input-label"><strong>City</strong></span>
+                  <input type="text" placeholder="City" ng-model="accomodationData.city" ng-keydown="validation_cityAcc(accomodationData.city)"/>
+                </label>
+                <strong class="validation" ng-show="error_cityAcc">{{validationAcc}}</strong>
+  			        <label class="item item-input item-floating-label">
+    			         <span class="input-label"><strong>Address</strong></span>
+    			         <input type="text" placeholder="Address" ng-model="accomodationData.address" ng-keydown="validation_addressAcc(accomodationData.address)"/>
+  			        </label>
+                <strong class="validation" ng-show="error_AddressAcc">{{validationAcc}}</strong>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                      <strong>Type Accomodation</strong>
+                    </div>
+                    <select ng-model="accomodationData.typeAcc" ng-change="selectType()">
+                      <option selected>Select Type</option>
+                      <option value="House">House</option>
+                      <option value="Departament">Departament</option>
+                    </select>
+                </label>
+  			        <label class="item item-input item-floating-label">
+    			         <span class="input-label"><strong>housing dimensions</strong></span>
+    			         <input type="text" placeholder="dimensions" ng-model="accomodationData.dimensionsAcc" ng-keydown="validation_dimensionsAcc(accomodationData.dimensionsAcc)">
+  			        </label>
+                <strong class="validation" ng-show="error_DimensionsAcc">{{validationAcc}}</strong>
+  			        <label class="item item-input item-floating-label description_label">
+    			         <span class="input-label"><strong>Description Accomodation</strong></span>
+    			         <textarea placeholder="Description Accomodation" ng-model="accomodationData.description" class="descriptAcc"></textarea>
+  			        </label>
+                <h4 class="title">Images Accomodations</h4>
+                <div id="container">
+                  <div class="row">
+                    <div class="col full-image">
+                      <img class="full-image" alt="no image loaded" id="img1" name="image"></img>
+                    </div>
+                  </div>
+                    <input type="file" file-model="image_file" id="file1"/>
+                </div>
+                <div>
+                  <div id="map-canvas" class="Gmap"></div>
+                </div>
+                <label class="item subdiv">
+                  <div class="subItem">
+                    <button class="button button button-positive" type="submit">{{btnActionAcc}}</button>
+                    <button class="button button button-energized" type="button">Cancel</button>
+                  </div>
+                </label>
+      				</div>
+      			</form>
+      		</ion-content>
+    	</ion-tab>
+    	<ion-tab title="Comments and likes">
+      		<!-- Tab 3 content  icon-on="ion-ios-gear"  icon-off="ion-ios-gear-outline"-->
+      		<ion-content ng-controller="AccomodationControl" ng-init="getComments_likes()">
+              <form name="personaldataForm" ng-submit="">
+                  <div class="list commentsAndLikes">
+                      <div class="input-label">
+                        <h4 class="title">Comments and Likes</h4>
+                      </div>
+                    <div>
+                      <h4 class="title"> Likes :{{like.cont}}</h4>
+                    </div>
+                    <label class="item item-input item-floating-label">
+                        <ul>
+                          <li class="card" ng-repeat="com in array_comment">
+                            <a class="item item-text-wrap" href="#">
+                              <div class="item item-divider">
+                                <h2>{{com.nameUsr}}</h2>
+                              </div>
+                              <div class="item item-text-wrap">
+                                <h2>{{com.Comment}}</h2>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                    </label>
+                  </div>
+              </form> 
+      		</ion-content>
+    	</ion-tab>
+  	</ion-tabs>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title"><strong>Search Accomodations</strong></h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSearch()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form name="form3" ng-submit="doSearch()" ng-controller="Form3">
+    	<div class="list">
+        <label class="item item-input item-floating-label">
+    			<span class="input-label"><strong>Country</strong></span>
+    			<input type="text" placeholder="Country" ng-model="search.country" ng-keydown="validation_country(search.country)"/>
+  			</label>
+  			<strong ng-show="error_country">{{validation_search}}</strong>
+        <label class="item item-input item-floating-label">
+    			<span class="input-label"><strong>State</strong></span>
+    			<input type="text" placeholder="State" ng-model="search.state" ng-keydown="validation_state(search.state)"/>
+  			</label>
+  			<strong ng-show="error_state">{{validation_search}}</strong>
+        <label class="item item-input item-floating-label">
+    			<span class="input-label"><strong>City</strong></span>
+    			<input type="text" placeholder="City" ng-model="search.city" ng-keydown="validation_city(search.city)"/>
+  			</label>
+        <strong ng-show="error_city">{{validation_search}}</strong>
+        <label class="item">
+          	<button class="button button-block button-positive" type="submit" ng-disabled="btn_disabled"><strong>Search</strong></button>
+        </label>
+		</div>
+    </form>
+  </ion-content>
+</ion-modal-view>

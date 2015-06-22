@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Comments</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeComment()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  	<h4 class="title">new Comment</h4>
+  	<form name="comm" ng-submit="crud_comment()" ng-controller="AccomodationDetails">
+  	 	<div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Name</span>
+          <input type="text" placeholder="name" ng-model="comments.nameUsr"/>
+        </label>
+  			<label class="item item-input item-floating-label">
+    			<span class="input-label">Comment</span>
+    			<textarea placeholder="Comment" class="comment" ng-model="comments.Comment"></textarea>
+  			</label>
+  			<label class="item">
+          		<button class="button button button-positive" type="submit">Send</button>
+          		<button class="button button button-energized" type="button">Cancel</button>
+        </label>
+  		</div>
+  	</form>
+  <ion-content>
+<ion-modal-view>
